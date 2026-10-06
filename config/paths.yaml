@@ -1,0 +1,12 @@
+data:
+  raw: data/raw
+  interim: data/interim
+  processed: data/processed
+  external: data/external
+  manifest: data/manifest
+
+models: models
+
+results:
+  figures: results/figures
+  tables: results/tables

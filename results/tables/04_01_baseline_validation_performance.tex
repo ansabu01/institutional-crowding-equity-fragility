@@ -1,0 +1,11 @@
+\begin{tabular}{llrrrr}
+\toprule
+Model & Feature set & MAE & RMSE & R2 & Spearman \\
+\midrule
+xgboost\_augmented & augmented & 0.0942 & 0.1305 & 0.475 & 0.750 \\
+xgboost\_market & market & 0.0954 & 0.1320 & 0.463 & 0.748 \\
+ridge\_augmented & augmented & 0.0956 & 0.1334 & 0.452 & 0.746 \\
+ridge\_market & market & 0.0959 & 0.1337 & 0.449 & 0.747 \\
+naive\_mean & none & 0.1347 & 0.1871 & -0.078 & --- \\
+\bottomrule
+\end{tabular}

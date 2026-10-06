@@ -1,0 +1,9 @@
+{
+  "source_library": "crsp_m_stock",
+  "source_table": "stksecurityinfohist",
+  "start_date": "2013-03-31",
+  "end_date": "2026-03-31",
+  "retrieved_at_utc": "2026-09-01T14:57:53.856425+00:00",
+  "file_name": "security_history.parquet",
+  "sha256": "2cc61185af4dd98762e664bffb91c5a1ce80a3c0a7dd024e1f69d204b5b39e3f"
+}

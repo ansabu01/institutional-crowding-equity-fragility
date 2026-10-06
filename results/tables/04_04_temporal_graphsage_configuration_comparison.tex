@@ -1,0 +1,15 @@
+\begin{table}
+\caption{Validation performance of the Temporal GraphSAGE configurations.}
+\label{tab:temporal-graphsage-configuration-comparison}
+\begin{tabular}{rrrrrrrrrrr}
+\toprule
+Hidden dimension & Learning rate & Dropout & Best epoch & Training MAE & Validation MAE & Validation RMSE & Validation R2 & Mean quarterly Spearman & Gap & Selected \\
+\midrule
+16 & 0.0010 & 0.2000 & 23 & 0.0821 & 0.0945 & 0.1345 & 0.4425 & 0.7461 & 0.0124 & False \\
+16 & 0.0100 & 0.2000 & 26 & 0.0837 & 0.0976 & 0.1372 & 0.4197 & 0.7348 & 0.0139 & False \\
+32 & 0.0010 & 0.2000 & 28 & 0.0813 & 0.0941 & 0.1348 & 0.4401 & 0.7475 & 0.0128 & True \\
+32 & 0.0010 & 0.3000 & 20 & 0.0821 & 0.0943 & 0.1347 & 0.4405 & 0.7462 & 0.0122 & False \\
+64 & 0.0010 & 0.3000 & 4 & 0.0888 & 0.0962 & 0.1360 & 0.4300 & 0.7332 & 0.0074 & False \\
+\bottomrule
+\end{tabular}
+\end{table}

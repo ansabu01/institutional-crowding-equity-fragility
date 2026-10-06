@@ -1,0 +1,2 @@
+model,feature_group,observations,quarters,mae,rmse,r2,mean_quarterly_spearman,selected
+xgboost_network,network_augmented,30511,8,0.0899881553851196,0.12452671074777207,0.5067548124990836,0.7380984809458294,True

@@ -1,0 +1,15 @@
+\begin{table}
+\caption{Long-only portfolio robustness results.}
+\label{tab:portfolio-robustness-performance}
+\begin{tabular}{lrrrrrrr}
+\toprule
+strategy & trading_days & cumulative_return & annualized_return & annualized_volatility & sharpe_ratio & maximum_drawdown & downside_volatility \\
+\midrule
+equal_all & 502 & 0.1617 & 0.0782 & 0.2037 & 0.2389 & 0.2650 & 0.1414 \\
+equal_exclude_d10 & 502 & 0.2946 & 0.1384 & 0.1952 & 0.5193 & 0.2411 & 0.1329 \\
+equal_exclude_top20 & 502 & 0.2837 & 0.1336 & 0.1849 & 0.5146 & 0.2340 & 0.1250 \\
+value_all & 502 & 0.4218 & 0.1932 & 0.1664 & 0.8606 & 0.1939 & 0.1130 \\
+value_exclude_d10 & 502 & 0.4195 & 0.1923 & 0.1662 & 0.8566 & 0.1937 & 0.1129 \\
+\bottomrule
+\end{tabular}
+\end{table}

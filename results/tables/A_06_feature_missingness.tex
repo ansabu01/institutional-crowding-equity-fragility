@@ -1,0 +1,55 @@
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{longtable}{p{0.14\textwidth}p{0.40\textwidth}rrr}
+    \caption{Missingness across candidate predictors and modeling samples}
+    \label{tab:feature-missingness} \\
+    \toprule
+    Feature group & Feature & \multicolumn{3}{c}{Missing share} \\
+    \cmidrule(lr){3-5}
+                  &         & Training & Validation & Test \\
+    \midrule
+    \endfirsthead
+    \multicolumn{5}{l}{\footnotesize\itshape Table~\thetable\ continued} \\
+    \toprule
+    Feature group & Feature & \multicolumn{3}{c}{Missing share} \\
+    \cmidrule(lr){3-5}
+                  &         & Training & Validation & Test \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{5}{r}{\footnotesize\itshape Continued on next page} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
+        Market & Market capitalization & 0.00\% & 0.00\% & 0.00\% \\
+        Market & Average daily dollar volume & 0.00\% & 0.00\% & 0.00\% \\
+        Market & 21-day return & 0.00\% & 0.00\% & 0.00\% \\
+        Market & Skip-month momentum & 0.00\% & 0.00\% & 0.00\% \\
+        Market & Volatility & 0.00\% & 0.00\% & 0.00\% \\
+        Market & Downside volatility & 0.00\% & 0.00\% & 0.00\% \\
+        Market & Market beta & 0.00\% & 0.00\% & 0.00\% \\
+        Market & Past maximum drawdown & 0.00\% & 0.00\% & 0.00\% \\
+        Market & Negative-return share & 0.00\% & 0.00\% & 0.00\% \\
+        Ownership & Institutional holder count & 0.00\% & 0.00\% & 0.00\% \\
+        Ownership & Total reported institutional value & 0.00\% & 0.00\% & 0.00\% \\
+        Ownership & Ownership HHI & 0.00\% & 0.00\% & 0.00\% \\
+        Ownership & Top-five ownership share & 0.00\% & 0.00\% & 0.00\% \\
+        Ownership & Mean owner portfolio weight & 0.00\% & 0.00\% & 0.00\% \\
+        Ownership & Maximum owner portfolio weight & 0.00\% & 0.00\% & 0.00\% \\
+        Ownership & Manager-holder share & 0.00\% & 0.00\% & 0.00\% \\
+        Ownership & Change in institutional holder count & 3.02\% & 0.16\% & 0.15\% \\
+        Ownership & Change in total reported institutional value & 3.02\% & 0.16\% & 0.15\% \\
+        Ownership & Change in ownership HHI & 3.02\% & 0.16\% & 0.15\% \\
+        Ownership & Change in top-five ownership share & 3.02\% & 0.16\% & 0.15\% \\
+        Network & Owner similarity & 0.00\% & 0.00\% & 0.00\% \\
+        Network & Owner degree centrality & 0.00\% & 0.00\% & 0.00\% \\
+        Network & Owner-neighbour similarity & 0.00\% & 0.00\% & 0.00\% \\
+        Network & Owner community count & 0.00\% & 0.00\% & 0.00\% \\
+        Network & Owner-community HHI & 0.00\% & 0.00\% & 0.00\% \\
+        Network & Largest owner-community share & 0.00\% & 0.00\% & 0.00\% \\
+        Network & Change in owner similarity & 3.02\% & 0.16\% & 0.15\% \\
+        Network & Change in owner-community HHI & 3.02\% & 0.16\% & 0.15\% \\
+\end{longtable}
+\endgroup

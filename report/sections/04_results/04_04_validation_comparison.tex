@@ -1,0 +1,21 @@
+\section{Final Validation Comparison and Model Selection}
+\label{sec:final_validation_comparison}
+
+The final validation comparison contains one representative of each model class: Ridge and tuned XGBoost using market features, and tuned Temporal GraphSAGE. Table~\ref{tab:finalist-validation-performance} reports their performance before any test result is examined.
+
+\input{../results/tables/04_05_finalist_validation_performance.tex}
+
+\noindent
+Temporal GraphSAGE records the lowest validation MAE, but the difference from XGBoost is less than one tenth of a percentage point. XGBoost has the lower RMSE and higher $R^2$, while the two models have essentially identical rank correlations. Ridge remains competitive but is weaker than XGBoost on each reported validation metric, providing modest support for Hypothesis~H3.
+
+Figure~\ref{fig:finalist-validation-deciles} confirms that the three models make errors in the same parts of the outcome distribution. Temporal GraphSAGE has a small average-MAE advantage, but none of the models resolves the sharp increase in error among the most severe realized drawdowns.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.82\textwidth]{04_07_validation_mae_by_realized_drawdown_decile.pdf}
+    \caption[Validation errors across the finalist models]{Validation MAE across realized-drawdown deciles for market-only Ridge, market-only XGBoost, and Temporal GraphSAGE.}
+    \label{fig:finalist-validation-deciles}
+\end{figure}
+
+\noindent
+Market-only XGBoost is therefore selected before the test sample is examined. Although Temporal GraphSAGE achieves a marginally lower validation MAE, XGBoost offers comparable ranking performance, stronger RMSE and $R^2$, and substantially lower implementation complexity. The validation evidence therefore provides mixed rather than conclusive support for Hypothesis~H4.

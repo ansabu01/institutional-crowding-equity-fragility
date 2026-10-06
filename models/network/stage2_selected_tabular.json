@@ -1,0 +1,13 @@
+{
+  "feature_group": "augmented",
+  "model": "xgboost_augmented",
+  "model_class": "xgboost",
+  "parameters": {
+    "max_depth": 3,
+    "min_child_weight": 5,
+    "n_estimators": 179,
+    "subsample": 0.8
+  },
+  "stage": 2,
+  "validation_mae": 0.09424922753544776
+}

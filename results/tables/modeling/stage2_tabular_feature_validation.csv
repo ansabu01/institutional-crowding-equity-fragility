@@ -1,0 +1,4 @@
+stage,model,model_class,feature_group,observations,quarters,mae,rmse,r2,mean_quarterly_spearman,selected
+tabular_features,xgboost_market,xgboost,market,29716,7,0.09537305695974013,0.132012984416846,0.4630309398418676,0.7478711598557463,False
+tabular_features,xgboost_augmented,xgboost,augmented,29716,7,0.0949000184446038,0.13095152036114033,0.47163133462922247,0.7484631168832898,True
+tabular_features,xgboost_network_augmented,xgboost,network_augmented,29716,7,0.09490559544669008,0.13095180064416134,0.47162907283151545,0.7478597089131827,False

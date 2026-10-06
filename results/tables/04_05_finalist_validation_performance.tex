@@ -1,0 +1,15 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\caption{Validation performance of the three finalist models.}
+\label{tab:finalist-validation-performance}
+\begin{tabular}{lrrrrr}
+\toprule
+Model & $\mathrm{MAE}_{\mathrm{train}}$ & $\mathrm{MAE}_{\mathrm{val}}$ & $\mathrm{RMSE}$ & $R^2$ & $\overline{\rho}$ \\
+\midrule
+Temporal GraphSAGE & 0.0813 & 0.0941 & 0.1348 & 0.440 & 0.748 \\
+\textbf{XGBoost} & \textbf{0.0836} & \textbf{0.0951} & \textbf{0.1317} & \textbf{0.466} & \textbf{0.748} \\
+Ridge & 0.0869 & 0.0959 & 0.1337 & 0.449 & 0.747 \\
+\bottomrule
+\end{tabular}
+\end{table}

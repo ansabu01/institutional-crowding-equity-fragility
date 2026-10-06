@@ -1,0 +1,69 @@
+# Licensed and locally generated data
+data/raw/
+data/interim/
+data/processed/
+data/external/
+
+# Observation-level and binary outputs derived from restricted data
+results/**/*.parquet
+results/**/*.feather
+results/**/*.duckdb
+results/**/*.db
+results/**/*.pkl
+
+# Fitted model binaries
+models/**/*.joblib
+models/**/*.pt
+models/**/*.pth
+models/**/*.ckpt
+
+# Credentials / secrets
+.env
+.env.*
+!.env.example
+
+# Python environments and generated files
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+venv/
+.venv/
+*.egg-info/
+
+# Notebook and application caches
+**/.tmp/
+tmp/
+.claude/
+.codex/
+.agents/
+
+# LaTeX and other build artifacts
+**/build/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs and large results
+results/logs/
+*.log

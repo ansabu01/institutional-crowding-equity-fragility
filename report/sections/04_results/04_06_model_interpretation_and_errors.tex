@@ -1,0 +1,48 @@
+\section{XGBoost Interpretation and Error Analysis}
+\label{sec:model_interpretation}
+
+The remaining predictive analyses focus on the market-only XGBoost model selected in Section~\ref{sec:final_validation_comparison}. Interpretation establishes which variables drive its predictions, while error analysis distinguishes its ability to rank stocks from its ability to estimate the magnitude of severe drawdowns.
+
+\subsection{SHAP Analysis}
+\label{sec:selected_model_interpretation}
+
+Figure~\ref{fig:selected-xgboost-shap} reports global SHAP importance and the distribution of feature contributions in the held-out sample \parencite{lundberg2017unified}. Recent downside volatility, past maximum drawdown, and market capitalization together account for most of the model's total absolute SHAP importance. Momentum, beta, the recent return, and the negative-return share contribute less.
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[t]{0.78\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{04_11_xgboost_global_shap_importance.pdf}
+        \caption{Global importance.}
+        \label{fig:selected-xgboost-shap-importance}
+    \end{subfigure}
+    \par\medskip
+    \begin{subfigure}[t]{0.9\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{04_11_xgboost_shap_beeswarm.pdf}
+        \caption{Direction and dispersion.}
+        \label{fig:selected-xgboost-shap-beeswarm}
+    \end{subfigure}
+    \caption[SHAP interpretation of the selected XGBoost model]{Global SHAP importance and observation-level SHAP contributions for the selected market-only XGBoost model.}
+    \label{fig:selected-xgboost-shap}
+\end{figure}
+
+\noindent
+Higher downside volatility and larger past drawdowns generally increase predicted downside risk, whereas larger market capitalization generally reduces it. These relationships describe how the fitted model forms its predictions and should not be interpreted as causal effects. The dependence plots in Appendix~\ref{app:model_interpretation_details} provide the corresponding feature-level evidence. The same appendix shows that the ordering of feature importance remains stable across test quarters, indicating that the model does not rely on a different set of predictors in each period.
+
+\subsection{Error Analysis}
+\label{sec:selected_model_errors}
+
+Building on the held-out evaluation in Section~\ref{sec:held_out_performance}, Figure~\ref{fig:selected-xgboost-error-diagnostics} examines where the selected model's errors occur. Predictions track the lower and middle realized-drawdown deciles reasonably well but increasingly understate losses in the upper tail. Consistent with this asymmetry, the signed-error distribution is concentrated near zero but has a pronounced positive tail, where realized drawdown exceeds the prediction.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{04_09_xgboost_test_calibration_and_signed_errors.pdf}
+    \caption[Calibration and signed errors of the selected model]{Mean predicted against realized drawdown across realized-drawdown deciles (left) and the distribution of realized-minus-predicted drawdown (right) in the held-out sample. Positive signed errors indicate that realized downside exceeded the prediction.}
+    \label{fig:selected-xgboost-error-diagnostics}
+\end{figure}
+
+\noindent
+As shown in Figure~\ref{fig:finalist-test-deciles} in Appendix~\ref{app:quarterly_test_performance}, MAE rises sharply in the most severe realized-drawdown decile. Supplementary quarterly and firm-size error diagnostics are reported in Appendices~\ref{app:quarterly_test_performance} and~\ref{app:firm_size_errors}.
+
+Taken together, the diagnostics support using the predictions as a cross-sectional ranking of downside risk, but provide less support for interpreting individual forecasts as precisely calibrated estimates of extreme drawdown magnitudes.

@@ -1,0 +1,17 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\caption{Held-out predictive robustness of the selected XGBoost specification.}
+\label{tab:predictive-robustness}
+\begin{tabular}{lrrrrrr}
+\toprule
+Target & Quarters & $\mathrm{MAE}$ & $\mathrm{RMSE}$ & $R^2$ & $\overline{\rho}$ & D10--D1 spread \\
+\midrule
+63-day maximum drawdown & 8 & 0.0912 & 0.1258 & 0.497 & 0.738 & 41.6\% \\
+63-day downside volatility & 8 & 0.1211 & 0.2362 & 0.482 & 0.840 & 76.5\% \\
+Worst five-day loss & 8 & 0.0594 & 0.0942 & 0.437 & 0.748 & 27.9\% \\
+21-day maximum drawdown & 8 & 0.0627 & 0.0930 & 0.394 & 0.690 & 25.2\% \\
+126-day maximum drawdown & 7 & 0.1113 & 0.1455 & 0.539 & 0.752 & 52.4\% \\
+\bottomrule
+\end{tabular}
+\end{table}

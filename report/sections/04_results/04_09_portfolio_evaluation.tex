@@ -1,0 +1,74 @@
+\section{Portfolio Evaluation}
+\label{sec:portfolio_implications}
+
+The portfolio analysis applies the Fragility Score using information available at each quarterly formation date. The primary equal-weighted comparison contrasts all eligible stocks with a portfolio excluding the most fragile decile. Decile~1 and Decile~10 serve as diagnostic portfolios showing the score's economic separation.
+
+\subsection{Primary Long-Only Portfolios}
+\label{sec:primary_portfolio_results}
+
+Table~\ref{tab:portfolio-event-windows} summarizes the eight quarterly 63-day holding windows. Excluding Decile~10 reduces average maximum drawdown, downside volatility, and the worst five-day loss relative to the full equal-weighted universe. The contrast between Decile~1 and Decile~10 is substantially larger, confirming that the score separates stocks with very different subsequent downside outcomes. The corresponding graphical comparison is reported in Appendix~\ref{app:portfolio_window_risk}.
+
+\input{../results/tables/04_09_portfolio_event_windows.tex}
+
+\noindent
+The continuous-strategy results in Table~\ref{tab:portfolio-performance} and Figure~\ref{fig:portfolio-strategy-wealth} point in the same direction. The screened portfolio improves on the matched equal-weighted universe in return, volatility, Sharpe ratio, and maximum drawdown. It nevertheless underperforms the external CRSP total-market benchmark, which has both higher returns and a better downside profile over the same period.
+
+\input{../results/tables/04_10_portfolio_performance.tex}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.82\textwidth]{04_11_fragility_strategy_wealth.pdf}
+    \caption[Cumulative wealth of the primary portfolio strategies]{Cumulative wealth of the full equal-weighted universe, the portfolio excluding Decile~10, and the CRSP total-market index.}
+    \label{fig:portfolio-strategy-wealth}
+\end{figure}
+
+\noindent
+Figure~\ref{fig:portfolio-strategy-alpha} presents the factor-adjusted evidence. The screened portfolio has approximately zero FF5-plus-momentum alpha, whereas the screened-minus-unscreened portfolio has a positive alpha whose 95\% confidence interval excludes zero. This indicates a benefit relative to the matched internal universe, not superiority to the broad market. Complete regression statistics appear in Appendix~\ref{app:primary_portfolio_alpha}.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.76\textwidth]{04_11_fragility_strategy_alpha.pdf}
+    \caption[Factor-adjusted alpha of the primary portfolios]{Annualized FF5-plus-momentum alpha with 95\% confidence intervals for the full, screened, and screened-minus-full portfolios.}
+    \label{fig:portfolio-strategy-alpha}
+\end{figure}
+
+\subsection{Long-Only Portfolio Robustness}
+\label{sec:portfolio_robustness_results}
+
+The long-only robustness analysis tests sensitivity to the exclusion threshold and weighting rule. Table~\ref{tab:portfolio-robustness} shows that excluding the top 20\% produces results similar to excluding Decile~10 under equal weighting. Under value weighting, however, excluding Decile~10 has almost no effect. The score's benefit is therefore concentrated among smaller stocks and depends on the weighting rule, consistent with the firm-size error pattern in Section~\ref{sec:selected_model_errors}. A graphical comparison appears in Appendix~\ref{app:portfolio_robustness_figure}.
+
+\input{../results/tables/04_12_portfolio_robustness.tex}
+
+\FloatBarrier
+
+\subsection{Long--Short Extensions}
+\label{sec:long_short_results}
+
+The long--short analysis examines the return spread between the least- and most-fragile stocks. DFRAG-10 uses the extreme deciles, DFRAG-20 uses the two lowest and highest deciles, and volatility-managed DFRAG-10 scales exposure using lagged realized volatility. Table~\ref{tab:long-short-performance} and Figure~\ref{fig:long-short-wealth} compare the three specifications. DFRAG-10 produces the highest return but is volatile and concentrated, whereas volatility management reduces volatility and maximum drawdown while retaining positive returns.
+
+\input{../results/tables/04_13_long_short_performance.tex}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.76\textwidth]{04_12_long_short_fragility_wealth.pdf}
+    \caption[Cumulative wealth of the exploratory long--short strategies]{Cumulative wealth of DFRAG-10, DFRAG-20, and volatility-managed DFRAG-10. The horizontal line at one denotes zero return.}
+    \label{fig:long-short-wealth}
+\end{figure}
+
+\noindent
+The FF5-plus-momentum alpha estimate for DFRAG-10 is positive and its 95\% confidence interval excludes zero, whereas the DFRAG-20 and volatility-managed estimates are less precise. These estimates are shown in Figure~\ref{fig:long-short-alpha}. They should nevertheless be interpreted cautiously because the evaluation period is short and the strategies require substantial short-side implementation.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.76\textwidth]{04_12_long_short_fragility_alpha.pdf}
+    \caption[Factor-adjusted alpha of the exploratory long--short strategies]{Annualized FF5-plus-momentum alpha with 95\% confidence intervals for DFRAG-10, DFRAG-20, and volatility-managed DFRAG-10.}
+    \label{fig:long-short-alpha}
+\end{figure}
+
+\noindent
+Table~\ref{tab:long-short-implementation} makes this limitation explicit. Average one-way turnover is high, particularly for volatility-managed DFRAG-10. Applying a 50-basis-point one-way trading cost reduces performance but does not eliminate the gross return in this short sample. The corresponding results under 10-, 25-, and 50-basis-point assumptions are reported in Appendix~\ref{app:long_short_cost_sensitivity}. These calculations still omit several material frictions, including borrowing availability, stock-loan fees, and market impact. The long--short evidence is therefore exploratory and does not support a tradable-factor interpretation.
+
+\input{../results/tables/04_14_long_short_implementation.tex}
+
+\noindent
+Overall, the Fragility Score has clear economic ordering power and modestly improves the downside profile of the matched equal-weighted portfolio. Its portfolio value is qualified by weighting sensitivity, implementation costs, and the stronger performance of the external market benchmark.

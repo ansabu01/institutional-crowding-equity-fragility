@@ -1,0 +1,8 @@
+feature,mean_absolute_shap,importance_share
+Downside volatility (63 days),0.04608827,0.39049223
+Maximum drawdown (252 days),0.03470367,0.29403389
+Log market capitalization,0.014537668,0.12317335
+Momentum (252--21 days),0.008956972,0.075889766
+Market beta (252 days),0.0064581432,0.054717932
+Return (21 days),0.006060518,0.05134897
+Negative-return share (63 days),0.0012208459,0.010343865

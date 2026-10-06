@@ -1,0 +1,6 @@
+model,model_class,feature_group,candidate,alpha,n_estimators,max_depth,min_child_weight,learning_rate,subsample,colsample_bytree,mae,rmse,r2,mean_quarterly_spearman,selected
+ridge_market,ridge,market,ridge_01,0.01,,,,,,,0.0958720785871538,0.1337267275765055,0.4489989856443134,0.7466983127510122,True
+ridge_market,ridge,market,ridge_02,0.1,,,,,,,0.09587208265233815,0.13372673360738527,0.4489989359456329,0.7466983297588567,False
+ridge_market,ridge,market,ridge_03,1.0,,,,,,,0.09587212330440706,0.13372679391717898,0.4489984389504982,0.7466986268586411,False
+ridge_market,ridge,market,ridge_04,10.0,,,,,,,0.09587252984759843,0.1337273971146311,0.44899346816674424,0.746699013040602,False
+ridge_market,ridge,market,ridge_05,100.0,,,,,,,0.09587660518016265,0.13373343898240997,0.4489436775645518,0.746706459445228,False

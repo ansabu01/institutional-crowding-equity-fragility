@@ -1,0 +1,7 @@
+{
+  "feature_group": "market",
+  "model": "xgboost_market",
+  "model_class": "xgboost",
+  "stage": 1,
+  "validation_mae": 0.09537305695974013
+}

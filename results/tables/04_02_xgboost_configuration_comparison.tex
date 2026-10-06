@@ -1,0 +1,13 @@
+\begin{table}
+\caption{Validation performance of the controlled XGBoost configurations.}
+\label{tab:xgboost-configuration-comparison}
+\begin{tabular}{lrrlllllll}
+\toprule
+Learning rate & Depth & Best round & Training MAE & Validation MAE & Gap & RMSE & $R^2$ & Spearman & Selected \\
+\midrule
+0.0500 & 3 & 176 & 0.0836 & 0.0950 & 0.0114 & 0.1317 & 0.466 & 0.749 & No \\
+0.1000 & 3 & 90 & 0.0836 & 0.0951 & 0.0114 & 0.1317 & 0.466 & 0.748 & Yes \\
+0.1000 & 4 & 54 & 0.0835 & 0.0952 & 0.0117 & 0.1316 & 0.466 & 0.748 & No \\
+\bottomrule
+\end{tabular}
+\end{table}

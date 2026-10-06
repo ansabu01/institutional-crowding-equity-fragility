@@ -1,0 +1,16 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Ridge validation performance and training-sample complexity diagnostics across feature sets.}
+\label{tab:ridge-feature-set-validation}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Specification & $\mathrm{MAE}_{\mathrm{train}}$ & $\mathrm{MAE}_{\mathrm{val}}$ & $\mathrm{RMSE}$ & $R^2$ & $\overline{\rho}$ & AIC & BIC \\
+\midrule
+\textbf{MKT} & \textbf{0.0869} & \textbf{0.0959} & \textbf{0.1337} & \textbf{0.449} & \textbf{0.747} & \textbf{-169,214} & \textbf{-169,136} \\
+MKT + OWN & 0.0869 & 0.0956 & 0.1334 & 0.452 & 0.746 & -169,471 & -169,344 \\
+MKT + OWN + NTW & 0.0868 & 0.0956 & 0.1332 & 0.453 & 0.746 & -169,637 & -169,452 \\
+\bottomrule
+\end{tabular}
+\end{table}

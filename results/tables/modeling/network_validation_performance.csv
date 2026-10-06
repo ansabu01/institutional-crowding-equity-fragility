@@ -1,0 +1,3 @@
+model,feature_group,observations,quarters,mae,rmse,r2,mean_quarterly_spearman,selected
+ridge_network,network_augmented,29716,7,0.09557345259460137,0.1332431064918579,0.45297715605116473,0.7463190138186722,False
+xgboost_network,network_augmented,29716,7,0.09490559544669008,0.13095180064416134,0.47162907283151545,0.7478597089131827,True

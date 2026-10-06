@@ -1,0 +1,1 @@
+"""Data acquisition, processing, and integration."""

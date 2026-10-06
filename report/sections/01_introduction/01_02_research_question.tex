@@ -1,0 +1,26 @@
+\section{Research Question}
+\label{sec:research_question}
+
+Building on the motivation outlined above, the analysis is centered on a single question that brings together the core objectives of the thesis:
+
+\begin{quote}
+    \textit{Do conventional institutional ownership measures and ownership-network topology improve the out-of-sample prediction of stock-level downside risk beyond market characteristics, can graph-based models exploit ownership structure more effectively than comparable tabular models, and do the resulting predictions have economic value?}
+\end{quote}
+
+\noindent
+The research question is intentionally formulated around the broader concept of \emph{downside risk}, rather than around a single empirical measure of fragility. In the primary analysis, downside risk is operationalized as the positive magnitude of a stock's maximum drawdown over the 63 trading days following each prediction date. Alternative downside measures and prediction horizons are examined as robustness checks, while other operationalizations could be adopted for different applications.\footnote{For example, a classification analysis could define a binary target indicating whether a stock's maximum drawdown exceeds a specified threshold over a given horizon. The model would then estimate the probability of that event.}
+
+The question can be decomposed into four related components:
+
+\begin{enumerate}
+    \item Do conventional institutional ownership and crowding measures improve the prediction of future downside risk relative to market characteristics alone?
+
+    \item Do engineered features describing ownership-network topology provide incremental predictive information beyond market characteristics and conventional ownership measures?\footnote{Topology refers to the structure of the connections between institutional investors and the securities they hold, including characteristics such as portfolio overlap, investor similarity, concentration across investor communities, and interconnectedness.}
+
+    \item Can graph neural networks learn useful information directly from the ownership graph and outperform comparable tabular models?
+
+    \item Do the resulting out-of-sample fragility predictions distinguish subsequent downside outcomes and support an economically meaningful and robust investment signal?
+\end{enumerate}
+
+\noindent
+The analysis therefore connects institutional ownership, market fragility, network analysis, and predictive modeling. It treats the value of ownership topology as an empirical question rather than a maintained assumption. The additional complexity of network representations and graph-based models is justified only if it improves out-of-sample prediction or produces economically meaningful information beyond simpler market and ownership measures.

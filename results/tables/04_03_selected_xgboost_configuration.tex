@@ -1,0 +1,24 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\caption{Selected market-only XGBoost configuration.}
+\label{tab:selected-xgboost-configuration}
+\begin{tabular}{lr}
+\toprule
+Parameter & Value \\
+\midrule
+Learning rate & 0.10 \\
+Maximum depth & 3 \\
+Minimum child weight & 1 \\
+Row subsample & 0.80 \\
+Column subsample & 0.80 \\
+Maximum boosting rounds & 1,000 \\
+Early-stopping patience & 30 rounds \\
+Training objective & Squared error \\
+Validation metric & MAE \\
+Selected boosting round & 90 \\
+Training MAE & 0.0836 \\
+Validation MAE & 0.0951 \\
+\bottomrule
+\end{tabular}
+\end{table}

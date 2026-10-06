@@ -1,0 +1,32 @@
+# Data and numerical computing
+numpy==2.3.4
+pandas==2.2.3
+pyarrow==22.0.0
+scipy==1.16.3
+duckdb==1.5.3
+
+# Configuration and environment
+pyyaml==6.0.3
+python-dotenv==1.2.2
+
+# Machine learning
+joblib==1.5.2
+scikit-learn==1.7.2
+xgboost==3.4.1
+shap==0.52.0
+
+# Graph / network
+networkx==3.6.1
+torch==2.14.0
+torch-geometric==2.8.0.post1
+
+# Finance / factor data
+statsmodels==0.14.6
+wrds==3.5.0
+
+# Visualization
+matplotlib==3.10.7
+seaborn==0.13.2
+
+# Notebooks
+jupyter==1.1.1

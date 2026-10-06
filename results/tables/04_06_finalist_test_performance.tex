@@ -1,0 +1,16 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\caption{Held-out test performance of the no-information benchmark and frozen finalist models.}
+\label{tab:finalist-test-performance}
+\begin{tabular}{lrrrr}
+\toprule
+Model & $\mathrm{MAE}$ & $\mathrm{RMSE}$ & $R^2$ & $\overline{\rho}$ \\
+\midrule
+No-information & 0.1302 & 0.1819 & -0.053 & --- \\
+Ridge & 0.0937 & 0.1297 & 0.465 & 0.727 \\
+XGBoost & 0.0912 & 0.1258 & 0.497 & 0.738 \\
+Temporal GraphSAGE & 0.0898 & 0.1268 & 0.488 & 0.740 \\
+\bottomrule
+\end{tabular}
+\end{table}

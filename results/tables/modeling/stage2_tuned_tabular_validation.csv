@@ -1,0 +1,2 @@
+stage,model,model_class,feature_group,observations,quarters,mae,rmse,r2,mean_quarterly_spearman,selected
+tabular_tuning,xgboost_augmented,xgboost,augmented,29716,7,0.09424922753544776,0.13052202995927445,0.4750915026714999,0.7504601361898119,True

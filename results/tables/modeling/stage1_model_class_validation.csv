@@ -1,0 +1,4 @@
+stage,model,model_class,feature_group,observations,quarters,mae,rmse,r2,mean_quarterly_spearman,selected
+model_class,naive_mean,none,none,29716,7,0.1346817628813963,0.18708648784283272,-0.07845197047623254,,False
+model_class,ridge_market,ridge,market,29716,7,0.09587212330440706,0.13372679391717898,0.4489984389504982,0.7466986268586411,False
+model_class,xgboost_market,xgboost,market,29716,7,0.09537305695974013,0.132012984416846,0.4630309398418676,0.7478711598557463,True

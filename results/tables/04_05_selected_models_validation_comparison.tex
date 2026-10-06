@@ -1,0 +1,13 @@
+\begin{table}
+\caption{Validation performance of the finalist predictive models.}
+\label{tab:selected-models-validation-comparison}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Model & Observations & Quarters & Training MAE & Validation MAE & Validation RMSE & Validation R2 & Mean quarterly Spearman \\
+\midrule
+Temporal GraphSAGE & 29716 & 7 & 0.0813 & 0.0941 & 0.1348 & 0.4401 & 0.7475 \\
+XGBoost & 29716 & 7 & 0.0836 & 0.0951 & 0.1317 & 0.4658 & 0.7481 \\
+Ridge & 29716 & 7 & 0.0869 & 0.0959 & 0.1337 & 0.4490 & 0.7467 \\
+\bottomrule
+\end{tabular}
+\end{table}

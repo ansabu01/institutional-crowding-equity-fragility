@@ -1,0 +1,45 @@
+\section{Feature Processing and Selection}
+\label{sec:feature_engineering}
+
+The candidate predictor set comprises nine market features, eleven conventional ownership features, and eight engineered network features. Feature processing proceeds in three stages. First, missingness is assessed across the fixed training, validation, and test samples. Second, strong feature redundancy is evaluated using the training sample only. Third, the retained variables are transformed and preprocessed as required by each model class. The resulting feature set is fixed before model selection, and no validation or test outcomes influence the choice of predictors.
+
+\subsection{Feature Missingness}
+
+Missingness is assessed across all 28 candidate predictors before transformation, imputation, or feature selection. All market features and all ownership and network level features are complete across the three modeling samples. Missing values are confined to the four ownership-change measures and the two network-change measures, which are undefined when a stock lacks an observation in the immediately preceding quarter.
+
+Missingness in these variables is approximately 3\% in the training sample and below 0.2\% in both validation and test. The higher training share primarily reflects the beginning of the panel, where preceding-quarter histories are unavailable. Because this missingness is limited and arises mechanically from the construction of change variables, the affected observations are retained rather than deleted. Their treatment within the preprocessing pipeline is described in the following subsection. Complete feature-level missingness results are reported in Appendix~\ref{app:feature_processing}.
+
+\subsection{Redundancy-Based Feature Selection}
+
+Pairwise Spearman correlations are calculated separately within each training quarter and then averaged across quarters. Figure~\ref{fig:all-feature-correlations} shows strong relationships both within feature groups and across them. These correlations do not imply that the groups are economically identical, but they show that several candidate variables contain nearly the same cross-sectional information.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.95\textwidth]{04_03_all_feature_correlations.pdf}
+    \caption[Correlations across candidate predictors]{Mean quarterly Spearman correlations among the candidate market, conventional ownership, and network features in the training sample.}
+    \label{fig:all-feature-correlations}
+\end{figure}
+
+\noindent
+Redundancy is reduced using a threshold of 0.80 for the absolute value of the mean quarterly correlation. Variables are first compared within each feature group, retaining the more interpretable representative of a highly correlated pair. Remaining cross-group correlations are then considered from the simplest to the most complex information set: market features first, conventional ownership features second, and engineered network features last. A more complex variable is removed when it largely reproduces information already represented by a simpler group. The target and all validation and test results are excluded from this decision. The complete set of feature pairs with absolute mean quarterly correlations above 0.70 is reported in Appendix~\ref{app:feature_correlations}, and the resulting selection decisions are summarized in Appendix~\ref{app:feature_selection_decisions}.
+
+The resulting specification contains:
+
+\begin{itemize}
+    \item Seven market features: market capitalization, 21-day return, skip-month momentum, downside volatility, market beta, past maximum drawdown, and the share of negative returns;
+    \item Five ownership features: ownership HHI, mean owner portfolio weight, and changes in holder count, reported value, and ownership HHI; and
+    \item Six network features: owner similarity, owner degree centrality, owner neighbour similarity, owner-community HHI, and changes in owner similarity and community HHI.
+\end{itemize}
+
+\noindent
+Ridge and XGBoost are estimated on nested subsets of these 18 predictors. The graph neural networks receive the same seven market and five ownership variables as stock-node attributes, but not the six engineered network features; they learn from the manager--stock graph and its ownership edges directly. The reduced feature set is fixed before model selection and is not revised in response to validation or test performance.
+
+\subsection{Preprocessing}
+
+After the final feature set is fixed, retained variables are prepared separately for each model. Market capitalization is transformed using \(\log(1+x)\) because its raw distribution is strongly right-skewed. For the graph-based models, manager portfolio value and manager security count receive the same transformation. No other retained tabular or node feature receives a logarithmic transformation.
+
+The engineered network features used by the tabular network specifications are converted into within-quarter percentile ranks ranging from 0 to 1. Ranks are calculated across the full contemporaneous stock universe before applying modeling-eligibility restrictions, with tied observations receiving their average rank. Each value therefore represents a stock's relative position within that quarter's ownership network rather than the raw feature level. This reduces mechanical variation caused by changes in the size and composition of the network over time. The graph neural networks do not receive these engineered network features, since they learn directly from the manager--stock graph and its ownership edges.
+
+Retained tabular predictors and graph-node features are clipped at the 1st and 99th percentiles estimated from the relevant fitting sample. Values outside these bounds are replaced by the corresponding percentile boundary, limiting the influence of extreme observations. Remaining missing values are replaced with fitting-sample medians. Ridge and the graph-based models additionally standardize their inputs using fitting-sample means and standard deviations, while XGBoost uses the clipped and imputed predictors without standardization.
+
+For validation-stage estimation, all data-dependent preprocessing parameters are estimated from the training sample and applied unchanged to validation observations. Once the finalist specifications and their hyperparameters have been fixed using validation data, their preprocessing parameters are re-estimated from the combined training and validation samples and applied unchanged to the test observations. The test sample therefore does not influence any transformation, clipping bound, imputation value, or scaling parameter. Missingness and transformation diagnostics, together with the complete preprocessing rules, are reported in Appendix~\ref{app:feature_processing}.

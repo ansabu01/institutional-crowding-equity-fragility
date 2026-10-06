@@ -1,0 +1,16 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{XGBoost validation performance across feature sets.}
+\label{tab:xgboost-feature-set-validation}
+\begin{tabular}{lrrrrrr}
+\toprule
+Specification & Best round & $\mathrm{MAE}_{\mathrm{train}}$ & $\mathrm{MAE}_{\mathrm{val}}$ & $\mathrm{RMSE}$ & $R^2$ & $\overline{\rho}$ \\
+\midrule
+\textbf{MKT} & \textbf{176} & \textbf{0.0836} & \textbf{0.0950} & \textbf{0.1317} & \textbf{0.466} & \textbf{0.749} \\
+MKT + OWN & 175 & 0.0833 & 0.0943 & 0.1305 & 0.475 & 0.751 \\
+MKT + OWN + NTW & 140 & 0.0835 & 0.0946 & 0.1306 & 0.474 & 0.750 \\
+\bottomrule
+\end{tabular}
+\end{table}

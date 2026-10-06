@@ -1,0 +1,200 @@
+sec_13f:
+  archive_base_url: >-
+    https://www.sec.gov/files/structureddata/data/form-13f-data-sets/
+
+  report_period_start_date: "2013-06-30"
+  report_period_end_date: "2026-03-31"
+
+  archives:
+    - id: "2026_mar_may"
+      filename: "01mar2026-31may2026_form13f.zip"
+
+    - id: "2025_dec_2026_feb"
+      filename: "01dec2025-28feb2026_form13f.zip"
+
+    - id: "2025_sep_nov"
+      filename: "01sep2025-30nov2025_form13f.zip"
+
+    - id: "2025_jun_aug"
+      filename: "01jun2025-31aug2025_form13f.zip"
+
+    - id: "2025_mar_may"
+      filename: "01mar2025-31may2025_form13f.zip"
+
+    - id: "2024_dec_2025_feb"
+      filename: "01dec2024-28feb2025_form13f.zip"
+
+    - id: "2024_sep_nov"
+      filename: "01sep2024-30nov2024_form13f.zip"
+
+    - id: "2024_jun_aug"
+      filename: "01jun2024-31aug2024_form13f.zip"
+
+    - id: "2024_mar_may"
+      filename: "01mar2024-31may2024_form13f.zip"
+
+    - id: "2024_jan_feb"
+      filename: "01jan2024-29feb2024_form13f.zip"
+
+    - id: "2023_q4"
+      filename: "2023q4_form13f.zip"
+
+    - id: "2023_q3"
+      filename: "2023q3_form13f.zip"
+
+    - id: "2023_q2"
+      filename: "2023q2_form13f.zip"
+
+    - id: "2023_q1"
+      filename: "2023q1_form13f.zip"
+
+    - id: "2022_q4"
+      filename: "2022q4_form13f.zip"
+
+    - id: "2022_q3"
+      filename: "2022q3_form13f.zip"
+
+    - id: "2022_q2"
+      filename: "2022q2_form13f.zip"
+
+    - id: "2022_q1"
+      filename: "2022q1_form13f.zip"
+
+    - id: "2021_q4"
+      filename: "2021q4_form13f.zip"
+
+    - id: "2021_q3"
+      filename: "2021q3_form13f.zip"
+
+    - id: "2021_q2"
+      filename: "2021q2_form13f.zip"
+
+    - id: "2021_q1"
+      filename: "2021q1_form13f.zip"
+
+    - id: "2020_q4"
+      filename: "2020q4_form13f.zip"
+
+    - id: "2020_q3"
+      filename: "2020q3_form13f.zip"
+
+    - id: "2020_q2"
+      filename: "2020q2_form13f.zip"
+
+    - id: "2020_q1"
+      filename: "2020q1_form13f.zip"
+
+    - id: "2019_q4"
+      filename: "2019q4_form13f.zip"
+
+    - id: "2019_q3"
+      filename: "2019q3_form13f.zip"
+
+    - id: "2019_q2"
+      filename: "2019q2_form13f.zip"
+
+    - id: "2019_q1"
+      filename: "2019q1_form13f.zip"
+
+    - id: "2018_q4"
+      filename: "2018q4_form13f.zip"
+
+    - id: "2018_q3"
+      filename: "2018q3_form13f.zip"
+
+    - id: "2018_q2"
+      filename: "2018q2_form13f.zip"
+
+    - id: "2018_q1"
+      filename: "2018q1_form13f.zip"
+
+    - id: "2017_q4"
+      filename: "2017q4_form13f.zip"
+
+    - id: "2017_q3"
+      filename: "2017q3_form13f.zip"
+
+    - id: "2017_q2"
+      filename: "2017q2_form13f.zip"
+
+    - id: "2017_q1"
+      filename: "2017q1_form13f.zip"
+
+    - id: "2016_q4"
+      filename: "2016q4_form13f.zip"
+
+    - id: "2016_q3"
+      filename: "2016q3_form13f.zip"
+
+    - id: "2016_q2"
+      filename: "2016q2_form13f.zip"
+
+    - id: "2016_q1"
+      filename: "2016q1_form13f.zip"
+
+    - id: "2015_q4"
+      filename: "2015q4_form13f.zip"
+
+    - id: "2015_q3"
+      filename: "2015q3_form13f.zip"
+
+    - id: "2015_q2"
+      filename: "2015q2_form13f.zip"
+
+    - id: "2015_q1"
+      filename: "2015q1_form13f.zip"
+
+    - id: "2014_q4"
+      filename: "2014q4_form13f.zip"
+
+    - id: "2014_q3"
+      filename: "2014q3_form13f.zip"
+
+    - id: "2014_q2"
+      filename: "2014q2_form13f.zip"
+
+    - id: "2014_q1"
+      filename: "2014q1_form13f.zip"
+
+    - id: "2013_q4"
+      filename: "2013q4_form13f.zip"
+
+    - id: "2013_q3"
+      filename: "2013q3_form13f.zip"
+
+    - id: "2013_q2"
+      filename: "2013q2_form13f.zip"
+
+crsp:
+  stock_library: "crsp_m_stock"
+  index_library: "crsp_m_indexes"
+
+  security_history:
+    table: "stksecurityinfohist"
+    start_date: "2013-03-31"
+    end_date: "2026-03-31"
+
+  daily_stock:
+    table: "dsf_v2"
+    start_date: "2012-01-01"
+    end_date: "2026-07-31"
+
+  daily_market_index:
+    table: "inddlyseriesdata_ind"
+    index_id: 1000080
+    start_date: "2012-01-01"
+    end_date: "2026-07-31"
+
+fama_french:
+  start_date: "2024-05-16"
+  end_date: "2026-05-18"
+
+  five_factors:
+    filename: "ff5_daily.zip"
+    download_url: >-
+      https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_5_Factors_2x3_daily_CSV.zip
+
+  momentum:
+    filename: "momentum_daily.zip"
+    download_url: >-
+      https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Momentum_Factor_daily_CSV.zip

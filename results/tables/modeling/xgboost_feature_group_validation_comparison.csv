@@ -1,0 +1,4 @@
+feature_set,predictors,best_round,training_mae,stage,model,model_class,feature_group,observations,quarters,validation_mae,validation_rmse,validation_r2,mean_quarterly_spearman,selected,generalization_gap
+Market,7,176,0.08358803396575148,xgboost_feature_comparison,xgboost_market,xgboost,market,29716,7,0.09497700664253518,0.13167342708523513,0.46578971829978066,0.7486233460335102,False,0.011388972676783696
+Market + ownership,12,175,0.08329763493109839,xgboost_feature_comparison,xgboost_augmented,xgboost,augmented,29716,7,0.0942726363844654,0.13050956176508544,0.4751917822716085,0.7505142822232769,False,0.010975001453367009
+Market + ownership + network,18,140,0.08347355980103473,xgboost_feature_comparison,xgboost_network_augmented,xgboost,network_augmented,29716,7,0.09456638936561759,0.1305972209011839,0.4744865514187222,0.7503046674879771,False,0.011092829564582865

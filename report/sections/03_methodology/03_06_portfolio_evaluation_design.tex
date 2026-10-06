@@ -1,0 +1,32 @@
+\section{Portfolio Evaluation Design}
+\label{sec:portfolio_evaluation_design}
+
+The Fragility Score is evaluated primarily as a downside-risk ranking rather than as a return-forecasting signal. Within each test quarter, eligible stocks are assigned to ten score groups, with Decile~1 containing the least fragile stocks and Decile~10 the most fragile. The primary comparison uses an equally weighted portfolio of all eligible stocks as an internal benchmark and a matched screened portfolio that excludes Decile~10. Because both portfolios are formed from the same initial universe using identical formation dates and weighting rules, their difference isolates the effect of excluding the stocks predicted to be most fragile.
+
+\subsection{Quarterly Portfolio Risk Evaluation}
+
+At the first trading day after each quarter's information cutoff, four portfolios are formed: all eligible stocks, the screened universe excluding Decile~10, Decile~1 alone, and Decile~10 alone. Constituents receive equal initial weights and are held for the following 63 trading days without re-ranking or rebalancing within the window. Individual stock weights are therefore allowed to evolve with realized returns. When a security delists after an observed delisting return, its subsequent return is set to zero, so the remaining proceeds are treated as cash rather than redistributed across surviving stocks.
+
+The primary comparison is the difference in maximum drawdown between the screened and unscreened portfolios. Downside volatility and the positive magnitude of the worst five-day return provide supporting risk measures, while cumulative return is reported descriptively rather than treated as the principal success criterion. The isolated decile portfolios assess whether realized downside risk increases from the least-fragile to the most-fragile end of the ranking.
+
+\subsection{Continuous Portfolio and Factor Evaluation}
+
+The same signal is also evaluated over a continuous daily return series. Portfolios are reconstituted on the first trading day after each quarterly information cutoff and held without interim rebalancing until the next formation date. The final portfolio is held through the end of its 63-day target window. Performance is summarized using cumulative and annualized return, annualized volatility, the Sharpe ratio based on daily excess returns, maximum drawdown, and downside volatility. The CRSP total-market index is reported as an external reference, but it is not a matched benchmark because it has a different security universe and weighting scheme.
+
+Factor-adjusted performance is estimated using both the capital asset pricing model \parencite{sharpe1964capital} and the Fama--French five-factor model augmented with momentum. For each fully invested portfolio \(p\), the general regression is
+
+\begin{equation}
+    R_{p,t}-R_{f,t}
+    =
+    \alpha_p
+    +
+    \boldsymbol{\beta}_p^{\prime}\mathbf{F}_t
+    +
+    \varepsilon_{p,t},
+    \label{eq:factor_regression}
+\end{equation}
+
+\noindent
+where \(\mathbf{F}_t\) contains the market excess return in the CAPM and the market, size, value, profitability, investment, and momentum factors in the augmented specification. The same regressions are estimated for the zero-investment screened-minus-unscreened portfolio using its return difference, without subtracting the risk-free rate. Alpha is annualized by multiplying the daily intercept by 252, and inference uses Newey--West standard errors with five trading-day lags \parencite{newey1987simple}.
+
+As a supplementary test, a fully invested long position in Decile~1 is combined with a fully invested short position in Decile~10. The resulting zero-investment DFRAG-10 portfolio is rebalanced on the same quarterly schedule and evaluated with the same factor specifications, without subtracting the risk-free rate. It is interpreted as an exploratory measure of the return spread between the two extremes of predicted fragility, not as evidence of an immediately tradable factor. Its sensitivity to portfolio breadth, turnover, transaction costs, and factor exposures is examined in the next section.

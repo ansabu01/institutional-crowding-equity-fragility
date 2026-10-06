@@ -1,0 +1,10 @@
+{
+  "source_library": "crsp_m_stock",
+  "source_table": "dsf_v2",
+  "start_date": "2012-01-01",
+  "end_date": "2026-07-31",
+  "universe_sha256": "d724181785388dd4580086fadf345f4b9016c024f8a99cfcacfcba846b99db68",
+  "retrieved_at_utc": "2026-09-02T15:56:54.563442+00:00",
+  "file_name": "daily_stock.parquet",
+  "sha256": "0dba9f61d9be854f18ad1581ce06c96ab271951442cb6fad7fd2f396f1071d5e"
+}

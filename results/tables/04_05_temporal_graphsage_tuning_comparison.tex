@@ -1,0 +1,18 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\caption{Validation performance of the Temporal GraphSAGE configurations.}
+\label{tab:temporal-graphsage-tuning-comparison}
+\begin{tabular}{rrrrrrrrr}
+\toprule
+Hidden & $\eta$ & Dropout & Best epoch & $\mathrm{MAE}_{\mathrm{train}}$ & $\mathrm{MAE}_{\mathrm{val}}$ & $\mathrm{RMSE}$ & $R^2$ & $\overline{\rho}$ \\
+\midrule
+16 & 0.001 & 0.20 & 23 & 0.0821 & 0.0945 & 0.1345 & 0.442 & 0.746 \\
+16 & 0.010 & 0.20 & 26 & 0.0837 & 0.0976 & 0.1372 & 0.420 & 0.735 \\
+\textbf{32} & \textbf{0.001} & \textbf{0.20} & \textbf{28} & \textbf{0.0813} & \textbf{0.0941} & \textbf{0.1348} & \textbf{0.440} & \textbf{0.748} \\
+32 & 0.001 & 0.30 & 20 & 0.0821 & 0.0943 & 0.1347 & 0.441 & 0.746 \\
+64 & 0.001 & 0.30 & 4 & 0.0888 & 0.0962 & 0.1360 & 0.430 & 0.733 \\
+\bottomrule
+\end{tabular}
+\end{table}

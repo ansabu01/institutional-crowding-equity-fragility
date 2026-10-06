@@ -1,0 +1,16 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\caption{Validation performance of the controlled XGBoost configurations.}
+\label{tab:xgboost-tuning-comparison}
+\begin{tabular}{rrrrrrrr}
+\toprule
+$\eta$ & Depth & Best round & $\mathrm{MAE}_{\mathrm{train}}$ & $\mathrm{MAE}_{\mathrm{val}}$ & $\mathrm{RMSE}$ & $R^2$ & $\overline{\rho}$ \\
+\midrule
+0.05 & 3 & 176 & 0.0836 & 0.0950 & 0.1317 & 0.466 & 0.749 \\
+\textbf{0.10} & \textbf{3} & \textbf{90} & \textbf{0.0836} & \textbf{0.0951} & \textbf{0.1317} & \textbf{0.466} & \textbf{0.748} \\
+0.10 & 4 & 54 & 0.0835 & 0.0952 & 0.1316 & 0.466 & 0.748 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,16 @@
+\begin{table}[!htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Validation performance of the three GNN architectures.}
+\label{tab:gnn-architecture-comparison}
+\begin{tabular}{lrrrrrr}
+\toprule
+Architecture & Best epoch & $\mathrm{MAE}_{\mathrm{train}}$ & $\mathrm{MAE}_{\mathrm{val}}$ & $\mathrm{RMSE}$ & $R^2$ & $\overline{\rho}$ \\
+\midrule
+GraphSAGE & 28 & 0.0829 & 0.0985 & 0.1416 & 0.383 & 0.738 \\
+GAT & 26 & 0.0844 & 0.0992 & 0.1418 & 0.381 & 0.739 \\
+\textbf{Temporal GraphSAGE} & \textbf{23} & \textbf{0.0821} & \textbf{0.0945} & \textbf{0.1345} & \textbf{0.442} & \textbf{0.746} \\
+\bottomrule
+\end{tabular}
+\end{table}

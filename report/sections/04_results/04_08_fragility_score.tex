@@ -1,0 +1,9 @@
+\section{Fragility Score Evaluation}
+\label{sec:fragility_statistical_evaluation}
+
+The selected XGBoost predictions are converted into within-quarter percentile ranks, with higher Fragility Scores indicating greater predicted downside risk relative to other stocks in the same quarter. Table~\ref{tab:fragility-score-performance} summarizes the score's held-out ranking performance.
+
+\input{../results/tables/04_08_fragility_score_summary.tex}
+
+\noindent
+At the stock level, the mean quarterly Spearman correlation between the Fragility Score and realized 63-day maximum drawdown is strong. At the decile level, mean realized drawdown increases monotonically with the Fragility Score in every test quarter, while the average realized-drawdown difference between Fragility Score Decile~10 and Decile~1 exceeds 40 percentage points. Figure~\ref{fig:fragility-score-deciles} and the supporting outcomes in Appendix~\ref{app:fragility_score_supporting_outcomes} show that higher score deciles also exhibit greater downside volatility, worse five-day losses, and weaker cumulative returns.

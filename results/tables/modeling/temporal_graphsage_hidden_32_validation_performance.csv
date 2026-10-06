@@ -1,0 +1,2 @@
+model,feature_group,observations,quarters,mae,rmse,r2,mean_quarterly_spearman,best_epoch,selected
+temporal_graphsage,direct_graph,29716,7,0.09412343055009842,0.13479670567013818,0.44014638662338257,0.7475323883188556,28,False

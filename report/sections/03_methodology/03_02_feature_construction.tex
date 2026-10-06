@@ -1,0 +1,138 @@
+\section{Target and Feature Construction}
+\label{sec:feature_construction}
+
+This section defines the forward downside-risk target and three groups of candidate predictors: market features, conventional ownership features, and engineered network features. The network features are derived from a quarterly manager--stock graph that preserves the identities and portfolio relationships underlying the reported holdings. All predictors use only information available by each stock-quarter's information cutoff, whereas the target is measured over the subsequent return window. Predictor-distribution diagnostics use the training sample, while full-panel target statistics are explicitly identified and reported only for descriptive purposes.
+
+\subsection{Downside-Risk Target}
+\label{sec:target_definition}
+
+Motivated by the liquidity-driven price-pressure mechanism and the stock-price fragility literature reviewed in Sections~\ref{sec:liquidity_fire_sales} and~\ref{sec:stock_price_fragility}, the primary prediction target is a forward-looking measure of stock-level downside risk rather than a symmetric measure of return dispersion. Specifically, the target is the positive magnitude of a security's maximum drawdown over the 63 trading days following its information cutoff. Let $r_{i,q,t}$ denote the return of stock $i$ on day $t$ of quarter $q$'s forward window, and define cumulative wealth by
+\begin{equation}
+    \begin{aligned}
+        W_{i,q,0}=1,
+        \qquad
+        W_{i,q,t}=\prod_{s=1}^{t}\left(1+r_{i,q,s}\right).
+    \end{aligned}
+    \label{eq:cumulative_wealth}
+\end{equation}
+\noindent
+The target is
+\begin{equation}
+    \mathrm{MDD}_{i,q}
+    = \max_{1\leq t\leq 63}
+    \left(
+    1-
+    \frac{W_{i,q,t}}
+    {\max_{0\leq u\leq t}W_{i,q,u}}
+    \right),
+    \label{eq:maximum_drawdown}
+\end{equation}
+\noindent
+so larger values represent more severe losses. This horizon approximates one calendar quarter and aligns the prediction window with the quarterly frequency of Form 13F reporting. A target window is complete only if the market calendar contains all 63 subsequent trading days, and it is usable only if the security has at least 50 observed daily returns within that window or, when delisted before the window ends, an observed delisting return. For a delisted security, the observed delisting return is included as its final realized return and wealth is then held constant through the remainder of the window, which is equivalent to retaining the proceeds as cash. This rule excludes unresolved or data-sparse outcomes rather than imputing them.
+
+As shown in Figure~\ref{fig:target-diagnostics}, the target distribution is right-skewed, with a mean of approximately 22\%, a median of about 17\%, and a 99th percentile close to 78\%, indicating a pronounced upper tail of severe drawdowns. The target also varies materially over time. The highest quarterly median occurs in 2019~Q4, whose forward window contains the February--March 2020 COVID-19 market sell-off \parencite{baker2020unprecedented} and reaches approximately 48\%. This episode illustrates that the target captures economically meaningful downside events.
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{03_01_target_distribution_histogram.pdf}
+        \caption{Cross-sectional target distribution.}
+        \label{fig:target-distribution}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{03_01_target_by_quarter.pdf}
+        \caption{Target variation by reporting quarter.}
+        \label{fig:target-by-quarter}
+    \end{subfigure}
+    \caption{Distribution and temporal variation of the forward 63-day maximum-drawdown target.}
+    \label{fig:target-diagnostics}
+\end{figure}
+
+\noindent
+Maximum drawdown is related to, but distinct from, other plausible downside measures. It is used as the primary target because it captures the cumulative peak-to-trough loss experienced within the prediction horizon. Alternative downside measures and prediction horizons are examined in Section~\ref{sec:robustness}. Comparable distributional statistics for the primary and alternative downside-risk targets are reported in Appendix~\ref{app:target_statistics}.
+
+\subsection{Market Features}
+\label{sec:market_features}
+
+Nine candidate market features are constructed from CRSP daily data:
+
+\begin{itemize}
+    \item Size and liquidity: market capitalization and average daily dollar volume over 63 days;
+    \item Returns and momentum: the 21-day return and momentum over the 252-to-21-day window;
+    \item Risk: 63-day volatility, 63-day downside volatility, 252-day market beta, and 252-day maximum drawdown;
+    \item Downside frequency: the share of negative returns over 63 days.
+\end{itemize}
+
+\noindent
+These features provide the non-ownership benchmark against which the incremental value of conventional ownership measures and network information is evaluated. Size and liquidity capture differences in firms' capacity to absorb selling pressure; recent returns and momentum capture prevailing price dynamics; and the remaining variables describe total, downside, systematic, and path-dependent risk. All features are computed using information observed strictly before the corresponding information cutoff.
+
+Exact variable definitions, minimum-data requirements, distributions, and temporal diagnostics are reported in Appendix~\ref{app:market_features}.
+
+\subsection{Ownership Features}
+\label{sec:crowding_measures}
+
+Eleven conventional ownership features are constructed directly from the Form 13F holdings panel to test Hypothesis~H1, without using network-derived information:
+
+\begin{itemize}
+    \item Ownership scale: the institutional holder count and total reported institutional value;
+    \item Ownership concentration: the Herfindahl--Hirschman index of reported holding shares and the share held by the five largest reported owners;
+    \item Owner exposure: the mean and maximum portfolio weights assigned to the stock by its owners and the share of reporting managers that hold the stock;
+    \item Changes in ownership: the quarter-over-quarter percentage changes in holder count and reported institutional value, together with the absolute changes in ownership concentration and the top-five ownership share.
+\end{itemize}
+
+\noindent
+The scale measures describe the breadth and value of institutional participation, while the concentration measures capture how unevenly ownership is distributed across managers. The owner-exposure measures indicate how important the stock is within its owners' portfolios and how widely it is held across the reporting-manager universe. Finally, the change measures capture shifts in these ownership characteristics between consecutive quarters.
+
+The four change measures are undefined when a security lacks a consecutive-quarter predecessor. Exact definitions, distributions, and temporal diagnostics are reported in Appendix~\ref{app:crowding_measures}.
+
+\subsection{Bipartite Manager--Stock Graph}
+\label{sec:bipartite_graph}
+
+The conventional measures in Section~\ref{sec:crowding_measures} summarize each stock's ownership base through scalar statistics. To preserve the identities and portfolio relationships of the institutions behind those positions, the same Form 13F holdings are also represented as a quarterly network.
+
+For each reporting quarter \(q\), institutional holdings form the bipartite graph
+
+\begin{equation}
+    G_q = \left(M_q \cup S_q, E_q\right),
+    \qquad
+    M_q \cap S_q = \varnothing,
+    \label{eq:bipartite_graph}
+\end{equation}
+
+\noindent
+where:
+
+\begin{itemize}
+    \item \(M_q\) is the set of reporting institutional managers;
+    \item \(S_q\) is the set of held securities; and
+    \item \(E_q \subseteq M_q \times S_q\) contains an edge \((m,i)\) whenever manager \(m\) reports holding security \(i\).
+\end{itemize}
+
+\noindent
+Each edge carries two weights. The portfolio weight is the position's reported value divided by the manager's total reported portfolio value, while the ownership weight is the position's reported value divided by the security's total reported institutional value. The first measures the stock's importance to the manager; the second measures the manager's importance to the stock's reported ownership base.
+
+Manager nodes contain portfolio value, security count, largest position weight, and portfolio concentration. Security nodes are matched to the stock-level market and conventional ownership measures described above, which are available as stock-node attributes. The scalar and network representations therefore describe the same retained holdings.
+
+The ownership graph, manager-similarity graph, and manager communities are reconstructed independently for every reporting quarter. The resulting 52 point-in-time snapshots preserve changes in institutional portfolios without allowing later holdings to enter an earlier information set. Network growth and node-degree diagnostics are reported in Appendix~\ref{app:bipartite_graph}.
+
+\subsection{Network Features}
+\label{sec:network_features}
+
+Managers are compared using the cosine similarity of their quarterly portfolio-weight vectors and connected to their nearest similar managers. Louvain community detection is then applied separately to each quarterly manager-similarity graph, so the resulting communities represent contemporaneous groups of managers with similar portfolios. These similarity and community assignments are aggregated across each stock's owners to construct the network features.
+
+Eight stock-level features are derived from the ownership and manager-similarity networks:
+
+\begin{itemize}
+    \item Owner similarity: portfolio similarity among a stock's institutional owners;
+    \item Owner centrality: value-weighted degree centrality of those owners;
+    \item Neighbour similarity: value-weighted similarity between the owners and their nearest portfolio neighbours;
+    \item Community breadth: number of manager communities represented among the owners;
+    \item Community concentration: the ownership HHI across manager communities and the share held by the largest community; and
+    \item Changes in topology: quarter-over-quarter changes in owner similarity and community concentration.
+\end{itemize}
+
+\noindent
+Change features are undefined when a stock lacks a consecutive-quarter predecessor. The manager-similarity and community construction is documented in Appendix~\ref{app:manager_similarity}; exact network-feature definitions, distributions, and temporal diagnostics are reported in Appendix~\ref{app:network_features}.

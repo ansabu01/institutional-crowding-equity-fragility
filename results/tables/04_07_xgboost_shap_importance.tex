@@ -1,0 +1,17 @@
+\begin{table}
+\caption{Global SHAP importance for the selected XGBoost model.}
+\label{tab:xgboost-shap-importance}
+\begin{tabular}{lrr}
+\toprule
+Feature & Mean absolute SHAP & Importance share \\
+\midrule
+Downside volatility (63 days) & 0.0461 & 0.3905 \\
+Maximum drawdown (252 days) & 0.0347 & 0.2940 \\
+Log market capitalization & 0.0145 & 0.1232 \\
+Momentum (252--21 days) & 0.0090 & 0.0759 \\
+Market beta (252 days) & 0.0065 & 0.0547 \\
+Return (21 days) & 0.0061 & 0.0513 \\
+Negative-return share (63 days) & 0.0012 & 0.0103 \\
+\bottomrule
+\end{tabular}
+\end{table}

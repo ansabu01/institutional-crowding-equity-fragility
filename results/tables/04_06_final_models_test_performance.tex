@@ -1,0 +1,13 @@
+\begin{table}
+\caption{Held-out test performance of the frozen finalist models.}
+\label{tab:final-models-test-performance}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Model & Observations & Quarters & Test MAE & Test RMSE & Test R2 & Mean quarterly Spearman & Selected model \\
+\midrule
+Temporal GraphSAGE & 30511 & 8 & 0.0898 & 0.1268 & 0.4884 & 0.7399 & False \\
+XGBoost & 30511 & 8 & 0.0912 & 0.1258 & 0.4967 & 0.7383 & True \\
+Ridge & 30511 & 8 & 0.0937 & 0.1297 & 0.4651 & 0.7272 & False \\
+\bottomrule
+\end{tabular}
+\end{table}
