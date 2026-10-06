@@ -4,6 +4,13 @@ data/interim/
 data/processed/
 data/external/
 
+# Local report assets
+assets/
+
+# Publish only the compiled report
+report/*
+!report/report.pdf
+
 # Observation-level and binary outputs derived from restricted data
 results/**/*.parquet
 results/**/*.feather

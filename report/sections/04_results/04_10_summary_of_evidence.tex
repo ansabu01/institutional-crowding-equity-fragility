@@ -1,9 +1,0 @@
-\section{Summary of Evidence}
-\label{sec:results_summary}
-
-Table~\ref{tab:hypothesis-summary} summarizes the empirical conclusions. Conventional ownership variables provide only a small validation improvement, while engineered network features do not add a consistent incremental gain. XGBoost modestly improves on Ridge using the same market information. Temporal GraphSAGE is competitive and records the lowest validation and test MAE, but it does not dominate the simpler tabular model across metrics and therefore provides no decisive support for the additional graph-learning complexity.
-
-\input{../results/tables/04_15_hypothesis_summary.tex}
-
-\noindent
-The clearest result concerns the final prediction. The selected market-only XGBoost model produces a strong and stable ranking of subsequent downside risk. The resulting Fragility Score separates realized maximum drawdown monotonically and produces consistent risk gradients across alternative downside outcomes. Portfolio applications preserve part of this ordering: excluding the most fragile stocks improves the matched equal-weighted portfolio, while the exploratory long--short signal is economically large within the short evaluation period. These findings remain sensitive to weighting and implementation assumptions, and the screened portfolio does not outperform the broad market. Hypothesis~H5 therefore receives qualified support, while the central practical contribution is the score's forward-looking risk ranking rather than a directly deployable investment strategy.

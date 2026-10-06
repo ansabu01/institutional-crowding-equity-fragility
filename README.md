@@ -25,7 +25,7 @@ config/       Project paths, data sources, and fixed settings
 data/         Data manifests and local data directories
 models/       Saved model artifacts
 notebooks/    Data audits, diagnostics, and interpretation
-report/       LaTeX report source and compiled PDF
+report/       Compiled project report
 results/      Generated figures and tables
 scripts/      Numbered pipeline entry points
 src/          Reusable project code
@@ -91,14 +91,6 @@ The pipeline contains 31 entry points numbered from `00` to `30`. Individual scr
 ## Reproducibility
 
 The project uses fixed source manifests and SHA-256 checks, deterministic random seeds, point-in-time information dates, and chronological training, validation, and test samples. Raw data are treated as immutable. Full reproduction requires authorized CRSP access and the environment variables listed above.
-
-## Building the Report
-
-Compiling the report requires a LaTeX distribution with `latexmk` and Biber. Once the required figures and tables are available, run:
-
-```bash
-latexmk -cd -pdf report/report.tex
-```
 
 ## License
 
